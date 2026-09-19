@@ -1,0 +1,1 @@
+This extension processes only data already stored in your Business Central environment. It transmits no data externally and calls no external services.

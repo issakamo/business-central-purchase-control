@@ -3,12 +3,13 @@
   "name": "Business Central Purchase Control",
   "publisher": "Issaka Mohammed",
   "version": "1.0.0.0",
-  "brief": "",
-  "description": "",
-  "privacyStatement": "",
-  "EULA": "",
-  "help": "",
-  "url": "",
+  "brief": "Purchase order risk detection and 3-way match validation for Business Central.",
+  "description": "Assesses purchase order risk by validating 3-way matching (order, receipt, invoice) and flagging overdue or variant orders. Maintains a full risk assessment history per order alongside a live current-risk indicator on the Purchase Order.",
+  "privacyStatement": "https://github.com/issakamo/business-central-purchase-control/blob/main/docs/privacy.md",
+  "EULA": "https://github.com/issakamo/business-central-purchase-control/blob/main/LICENSE",
+  "help": "https://github.com/issakamo/business-central-purchase-control/blob/main/README.md",
+  "contextSensitiveHelpUrl": "https://github.com/issakamo/business-central-purchase-control/blob/main/README.md",
+  "url": "https://github.com/issakamo/business-central-purchase-control",
   "logo": "resources/logo.jpg",
   "dependencies": [
     {
@@ -32,7 +33,7 @@
     "allowDownloadingSource": true,
     "includeSourceInSymbolFile": true
   },
-  "runtime": "18.0",
+  "runtime": "17.0",
   "target": "Cloud",
   "features": [
     "NoImplicitWith",
