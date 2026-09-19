@@ -1,0 +1,16 @@
+{
+  "name": "PCX Ruleset",
+  "includedRuleSets": [],
+  "rules": [
+    {
+      "id": "AS0084",
+      "action": "None",
+      "justification": "ID range validation requires a Microsoft Partner Center-issued AppSource range, which isn't obtainable outside real ISV registration. Range documented as portfolio-scoped in docs/architecture.md."
+    },
+    {
+      "id": "AS0092",
+      "action": "None",
+      "justification": "No live Azure Application Insights resource in local Docker dev. Telemetry handled via a config-table abstraction (see Phase 5 / docs/architecture.md) rather than a manifest connection string."
+    }
+  ]
+}
