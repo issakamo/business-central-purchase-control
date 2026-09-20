@@ -110,6 +110,86 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.AreEqual(20, PriceVariancePct, 'Expected 20% variance');
     end;
 
+    [Test]
+    procedure EvaluateThreeWayMatch_FullyMatched_ReturnsMatched()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        QtyVariancePct, PriceVariancePct : Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 100, 100, 10, 10, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
+
+        Assert.AreEqual(Result::Matched, Result, 'Expected fully Matched');
+    end;
+
+    [Test]
+    procedure EvaluateThreeWayMatch_QtyOnlyMismatch_ReturnsQuantityMismatch()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        QtyVariancePct, PriceVariancePct : Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 80, 80, 10, 10, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
+
+        Assert.AreEqual(Result::"Quantity Mismatch", Result, 'Expected Quantity Mismatch only');
+    end;
+
+    [Test]
+    procedure EvaluateThreeWayMatch_PriceOnlyMismatch_ReturnsPriceMismatch()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        QtyVariancePct, PriceVariancePct : Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 100, 100, 10, 12, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
+
+        Assert.AreEqual(Result::"Price Mismatch", Result, 'Expected Price Mismatch only');
+    end;
+
+    [Test]
+    procedure EvaluateThreeWayMatch_BothMismatch_ReturnsQuantityAndPriceMismatch()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        QtyVariancePct, PriceVariancePct : Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 80, 80, 10, 12, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
+
+        Assert.AreEqual(Result::"Quantity and Price Mismatch", Result, 'Expected both mismatched');
+    end;
+
+    [Test]
+    procedure EvaluateThreeWayMatch_NotReceived_ShortCircuitsBeforeInvoiceCheck()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        QtyVariancePct, PriceVariancePct : Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceipt(100, 0, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
+
+        Assert.AreEqual(Result::"Not Yet Received", Result, 'Expected Not Yet Received to take precedence');
+    end;
+
     var
         Assert: Codeunit "Library Assert";
 }

@@ -7,6 +7,11 @@
     "51120|EvaluateReceiptMatch_FullReceipt_ReturnsMatched": 0,
     "51120|EvaluateInvoiceMatch_NoInvoice_ReturnsNotYetInvoiced": 0,
     "51120|EvaluateInvoiceMatch_SamePrice_ReturnsMatched": 0,
-    "51120|EvaluateInvoiceMatch_HigherPrice_ReturnsPriceMismatch": 0
+    "51120|EvaluateInvoiceMatch_HigherPrice_ReturnsPriceMismatch": 0,
+    "51120|EvaluateThreeWayMatch_FullyMatched_ReturnsMatched": 0,
+    "51120|EvaluateThreeWayMatch_QtyOnlyMismatch_ReturnsQuantityMismatch": 0,
+    "51120|EvaluateThreeWayMatch_PriceOnlyMismatch_ReturnsPriceMismatch": 0,
+    "51120|EvaluateThreeWayMatch_BothMismatch_ReturnsQuantityAndPriceMismatch": 0,
+    "51120|EvaluateThreeWayMatch_NotReceived_ShortCircuitsBeforeInvoiceCheck": 0
   }
 }

@@ -61,6 +61,14 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         PurchaseLine.SetRange("Document Type", PurchaseLine."Document Type"::Order);
         PurchaseLine.SetRange("Document No.", DocumentNo);
         PurchaseLine.SetRange(Type, PurchaseLine.Type::Item);
+
+        if PurchaseLine.IsEmpty() then
+            // The order line no longer exists — Business Central deletes it
+            // once fully received and fully invoiced. Its absence is itself
+            // confirmation the order completed exactly as ordered, so ordered
+            // quantity equals received quantity in this case.
+            exit(SumReceivedQuantity(DocumentNo));
+
         PurchaseLine.CalcSums(Quantity);
         exit(PurchaseLine.Quantity);
     end;
@@ -141,5 +149,36 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         PurchInvLine.SetRange(Type, PurchInvLine.Type::Item);
         PurchInvLine.CalcSums(Amount);
         exit(PurchInvLine.Amount);
+    end;
+
+    procedure EvaluateThreeWayMatch(DocumentNo: Code[20]; var QtyVariancePct: Decimal; var PriceVariancePct: Decimal): Enum "PCX Match Status"
+    var
+        ReceiptStatus: Enum "PCX Match Status";
+        InvoiceStatus: Enum "PCX Match Status";
+    begin
+        ReceiptStatus := EvaluateReceiptMatch(DocumentNo, QtyVariancePct);
+
+        // Receiving takes precedence: if nothing has arrived yet, invoice
+        // status is irrelevant regardless of what it would independently say.
+        if ReceiptStatus = ReceiptStatus::"Not Yet Received" then begin
+            PriceVariancePct := 0;
+            exit(ReceiptStatus);
+        end;
+
+        InvoiceStatus := EvaluateInvoiceMatch(DocumentNo, PriceVariancePct);
+
+        if InvoiceStatus = InvoiceStatus::"Not Yet Invoiced" then
+            exit(InvoiceStatus);
+
+        case true of
+            (ReceiptStatus = ReceiptStatus::Matched) and (InvoiceStatus = InvoiceStatus::Matched):
+                exit(Enum::"PCX Match Status"::Matched);
+            (ReceiptStatus = ReceiptStatus::"Quantity Mismatch") and (InvoiceStatus = InvoiceStatus::Matched):
+                exit(Enum::"PCX Match Status"::"Quantity Mismatch");
+            (ReceiptStatus = ReceiptStatus::Matched) and (InvoiceStatus = InvoiceStatus::"Price Mismatch"):
+                exit(Enum::"PCX Match Status"::"Price Mismatch");
+            else
+                exit(Enum::"PCX Match Status"::"Quantity and Price Mismatch");
+        end;
     end;
 }
