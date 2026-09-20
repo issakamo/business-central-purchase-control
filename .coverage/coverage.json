@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "coverageData": [],
+  "testStatus": {
+    "51120|EvaluateReceiptMatch_NoReceipt_ReturnsNotYetReceived": 0,
+    "51120|EvaluateReceiptMatch_PartialReceipt_ReturnsQuantityMismatch": 0,
+    "51120|EvaluateReceiptMatch_FullReceipt_ReturnsMatched": 0
+  }
+}

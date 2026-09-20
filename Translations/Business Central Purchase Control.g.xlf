@@ -2,7 +2,148 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="en-US" original="Business Central Purchase Control">
     <body>
-      <group id="body" />
+      <group id="body">
+        <trans-unit id="Table 1266350767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk Assessment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 458601998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assessment Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Assessment Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PO Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 4013316041 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Match Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Match Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 222620933 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Notes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Notes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 4263389294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overdue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Overdue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 1366573807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price Variance %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Price Variance % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 2533037109 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Variance %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Quantity Variance % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 1069846527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Risk Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Risk Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 3570832196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trigger</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Trigger - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1266350767 - Field 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1682071394 - Field 1186612359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>3-Way Match Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PCX Purchase Header Ext - Field PCX Current Match Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1682071394 - Field 503506081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
+          <source>Risk Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PCX Purchase Header Ext - Field PCX Current Risk Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2605251272 - EnumValue 3423616278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Matched</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Match Status - EnumValue Matched - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2605251272 - EnumValue 1819646492 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not Yet Invoiced</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Match Status - EnumValue Not Yet Invoiced - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2605251272 - EnumValue 1008543846 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Not Yet Received</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Match Status - EnumValue Not Yet Received - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2605251272 - EnumValue 3290506291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price Mismatch</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Match Status - EnumValue Price Mismatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2605251272 - EnumValue 2638520491 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity and Price Mismatch</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Match Status - EnumValue Quantity and Price Mismatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2605251272 - EnumValue 1478812817 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Mismatch</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Match Status - EnumValue Quantity Mismatch - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3416148578 - EnumValue 536401205 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Critical</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Level - EnumValue Critical - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3416148578 - EnumValue 3116416530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>High</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Level - EnumValue High - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3416148578 - EnumValue 3592530208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Low</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Level - EnumValue Low - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 3416148578 - EnumValue 432767615 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Medium</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Level - EnumValue Medium - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2357400508 - EnumValue 2996964484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Posted</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Invoice Posted - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2357400508 - EnumValue 1508634494 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manual</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Manual - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2357400508 - EnumValue 3445422215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Receipt Posted</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Receipt Posted - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 2357400508 - EnumValue 4020758431 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Released</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Released - Property Caption</note>
+        </trans-unit>
+      </group>
     </body>
   </file>
 </xliff>
