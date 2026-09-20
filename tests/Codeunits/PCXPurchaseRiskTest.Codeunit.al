@@ -59,6 +59,57 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.AreEqual(0, QtyVariancePct, 'Expected 0% variance');
     end;
 
+    [Test]
+    procedure EvaluateInvoiceMatch_NoInvoice_ReturnsNotYetInvoiced()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+
+        PriceVariancePct: Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 100, 0, 10, 0, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateInvoiceMatch(PurchaseHeader."No.", PriceVariancePct);
+
+        Assert.AreEqual(Result::"Not Yet Invoiced", Result, 'Expected Not Yet Invoiced');
+    end;
+
+    [Test]
+    procedure EvaluateInvoiceMatch_SamePrice_ReturnsMatched()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        PriceVariancePct: Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 100, 100, 10, 10, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateInvoiceMatch(PurchaseHeader."No.", PriceVariancePct);
+
+        Assert.AreEqual(Result::Matched, Result, 'Expected Matched');
+        Assert.AreEqual(0, PriceVariancePct, 'Expected 0% variance');
+    end;
+
+    [Test]
+    procedure EvaluateInvoiceMatch_HigherPrice_ReturnsPriceMismatch()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        PriceVariancePct: Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 100, 100, 10, 12, PurchaseHeader);
+
+        Result := RiskMgt.EvaluateInvoiceMatch(PurchaseHeader."No.", PriceVariancePct);
+
+        Assert.AreEqual(Result::"Price Mismatch", Result, 'Expected Price Mismatch');
+        Assert.AreEqual(20, PriceVariancePct, 'Expected 20% variance');
+    end;
+
     var
         Assert: Codeunit "Library Assert";
 }

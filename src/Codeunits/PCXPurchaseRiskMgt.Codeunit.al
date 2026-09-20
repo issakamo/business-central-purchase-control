@@ -81,4 +81,65 @@ codeunit 51100 "PCX Purchase Risk Mgt"
             and (PurchaseHeader."Expected Receipt Date" < Today)
             and (SumReceivedQuantity(PurchaseHeader."No.") < SumOrderedQuantity(PurchaseHeader."No.")));
     end;
+
+    procedure EvaluateInvoiceMatch(DocumentNo: Code[20]; var PriceVariancePct: Decimal): Enum "PCX Match Status"
+    var
+        OrderedAmount: Decimal;
+        InvoicedAmount: Decimal;
+    begin
+        OrderedAmount := SumOrderedAmount(DocumentNo);
+        InvoicedAmount := SumInvoicedAmount(DocumentNo);
+
+        if InvoicedAmount = 0 then begin
+            PriceVariancePct := 0;
+            exit(Enum::"PCX Match Status"::"Not Yet Invoiced");
+        end;
+
+        if OrderedAmount = 0 then
+            PriceVariancePct := 100
+        else
+            PriceVariancePct := Abs(OrderedAmount - InvoicedAmount) / OrderedAmount * 100;
+
+        if InvoicedAmount = OrderedAmount then
+            exit(Enum::"PCX Match Status"::Matched);
+
+        exit(Enum::"PCX Match Status"::"Price Mismatch");
+    end;
+
+    local procedure SumOrderedAmount(DocumentNo: Code[20]): Decimal
+    var
+        PurchRcptLine: Record "Purch. Rcpt. Line";
+        OrderedAmount: Decimal;
+    begin
+        // Purchase Order lines are automatically deleted once fully received
+        // and fully invoiced — the live Purchase Line no longer exists at that
+        // point. The posted receipt line persists regardless of later invoicing
+        // and carries the PO's agreed unit cost and discount, so it's the
+        // durable baseline for invoice-price comparison instead of the
+        // (possibly-gone) order line.
+        //
+        // Recomputed from Line Discount % rather than a stored discount amount
+        // field, which does not exist on Purch. Rcpt. Line in this version —
+        // mathematically equivalent, though a fraction-of-a-cent rounding
+        // difference is theoretically possible versus BC's own internal
+        // rounding on unusual percentage/quantity combinations.
+        PurchRcptLine.SetRange("Order No.", DocumentNo);
+        PurchRcptLine.SetRange(Type, PurchRcptLine.Type::Item);
+        if PurchRcptLine.FindSet() then
+            repeat
+                OrderedAmount += (PurchRcptLine.Quantity * PurchRcptLine."Direct Unit Cost") *
+                    (1 - PurchRcptLine."Line Discount %" / 100);
+            until PurchRcptLine.Next() = 0;
+        exit(OrderedAmount);
+    end;
+
+    local procedure SumInvoicedAmount(DocumentNo: Code[20]): Decimal
+    var
+        PurchInvLine: Record "Purch. Inv. Line";
+    begin
+        PurchInvLine.SetRange("Order No.", DocumentNo);
+        PurchInvLine.SetRange(Type, PurchInvLine.Type::Item);
+        PurchInvLine.CalcSums(Amount);
+        exit(PurchInvLine.Amount);
+    end;
 }

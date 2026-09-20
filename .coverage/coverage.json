@@ -4,6 +4,9 @@
   "testStatus": {
     "51120|EvaluateReceiptMatch_NoReceipt_ReturnsNotYetReceived": 0,
     "51120|EvaluateReceiptMatch_PartialReceipt_ReturnsQuantityMismatch": 0,
-    "51120|EvaluateReceiptMatch_FullReceipt_ReturnsMatched": 0
+    "51120|EvaluateReceiptMatch_FullReceipt_ReturnsMatched": 0,
+    "51120|EvaluateInvoiceMatch_NoInvoice_ReturnsNotYetInvoiced": 0,
+    "51120|EvaluateInvoiceMatch_SamePrice_ReturnsMatched": 0,
+    "51120|EvaluateInvoiceMatch_HigherPrice_ReturnsPriceMismatch": 0
   }
 }
