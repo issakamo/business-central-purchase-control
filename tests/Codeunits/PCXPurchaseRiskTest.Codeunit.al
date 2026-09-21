@@ -190,6 +190,67 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.AreEqual(Result::"Not Yet Received", Result, 'Expected Not Yet Received to take precedence');
     end;
 
+    [Test]
+    procedure DetermineRiskLevel_BothMismatchSmall_EscalatesOneTierFromLow()
+    var
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        Result: Enum "PCX Risk Level";
+    begin
+        // [GIVEN] Both variances are small (below the 5% Medium threshold)
+        // [WHEN]
+        Result := RiskMgt.DetermineRiskLevel(Enum::"PCX Match Status"::"Quantity and Price Mismatch", false, 4, 4);
+
+        // [THEN] Baseline is Low, escalated one tier to Medium — not Critical
+        Assert.AreEqual(Result::Medium, Result, 'Expected Medium, not an inflated Critical from summing small variances');
+    end;
+
+    [Test]
+    procedure DetermineRiskLevel_OneLargeOneSmall_BaselinesOnLarger()
+    var
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        Result: Enum "PCX Risk Level";
+    begin
+        // [GIVEN] Quantity variance small (4%), price variance large (45%)
+        // [WHEN]
+        Result := RiskMgt.DetermineRiskLevel(Enum::"PCX Match Status"::"Quantity and Price Mismatch", false, 4, 45);
+
+        // [THEN] Baseline is High (from the 45%), escalated to Critical
+        Assert.AreEqual(Result::Critical, Result, 'Expected baseline from the larger variance, escalated one tier');
+    end;
+
+    [Test]
+    procedure DetermineRiskLevel_OverdueOnly_NudgesLowToMediumButNeverHigher()
+    var
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        CleanResult: Enum "PCX Risk Level";
+        MismatchResult: Enum "PCX Risk Level";
+    begin
+        // [GIVEN/WHEN] A clean match, overdue
+        CleanResult := RiskMgt.DetermineRiskLevel(Enum::"PCX Match Status"::Matched, true, 0, 0);
+        // [GIVEN/WHEN] An already-High mismatch, also overdue
+        MismatchResult := RiskMgt.DetermineRiskLevel(Enum::"PCX Match Status"::"Quantity Mismatch", true, 25, 0);
+
+        // [THEN] Overdue nudges a clean PO to Medium, but never overrides a worse tier
+        Assert.AreEqual(CleanResult::Medium, CleanResult, 'Overdue alone should nudge Low to Medium');
+        Assert.AreEqual(MismatchResult::High, MismatchResult, 'Overdue should not override an already-worse tier');
+    end;
+
+    [Test]
+    procedure ReleasePurchaseOrder_CreatesReleasedTriggerAssessment()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        Assessment: Record "PCX Purchase Risk Assessment";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+    begin
+        // [GIVEN/WHEN] A purchase order is created and released
+        TestLibrary.CreateAndReleasePurchaseOrder(100, PurchaseHeader);
+
+        // [THEN] A risk assessment exists for this document, triggered by Released
+        Assessment.SetRange("Document No.", PurchaseHeader."No.");
+        Assessment.SetRange("Trigger", Assessment."Trigger"::Released);
+        Assert.RecordIsNotEmpty(Assessment);
+    end;
+
     var
         Assert: Codeunit "Library Assert";
 }

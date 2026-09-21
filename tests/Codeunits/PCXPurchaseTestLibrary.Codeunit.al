@@ -6,7 +6,7 @@ using Microsoft.Purchases.Vendor;
 
 codeunit 51121 "PCX Purchase Test Library"
 {
-   procedure CreatePurchaseOrderWithReceipt(OrderedQty: Decimal; ReceivedQty: Decimal; var PurchaseHeader: Record "Purchase Header")
+    procedure CreatePurchaseOrderWithReceipt(OrderedQty: Decimal; ReceivedQty: Decimal; var PurchaseHeader: Record "Purchase Header")
     var
         PurchaseLine: Record "Purchase Line";
     begin
@@ -57,5 +57,14 @@ codeunit 51121 "PCX Purchase Test Library"
         PurchaseLine.Validate("Qty. to Receive", ReceivedQty);
         PurchaseLine.Modify(true);
         LibraryPurchase.PostPurchaseDocument(PurchaseHeader, true, false);
+    end;
+
+    procedure CreateAndReleasePurchaseOrder(OrderedQty: Decimal; var PurchaseHeader: Record "Purchase Header")
+    var
+        PurchaseLine: Record "Purchase Line";
+        LibraryPurchase: Codeunit "Library - Purchase";
+    begin
+        CreateBasePurchaseOrder(PurchaseHeader, PurchaseLine, OrderedQty);
+        LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
     end;
 }
