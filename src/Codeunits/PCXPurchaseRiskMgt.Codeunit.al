@@ -8,6 +8,7 @@ codeunit 51100 "PCX Purchase Risk Mgt"
     procedure AssessPurchaseOrder(var PurchaseHeader: Record "Purchase Header"; RiskTrigger: Enum "PCX Risk Trigger")
     var
         Assessment: Record "PCX Purchase Risk Assessment";
+        ScorecardMgt: Codeunit "PCX Vendor Scorecard Mgt";
         MatchStatus: Enum "PCX Match Status";
         QtyVariancePct: Decimal;
         PriceVariancePct: Decimal;
@@ -26,6 +27,8 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         Assessment."Price Variance %" := PriceVariancePct;
         Assessment."Risk Level" := DetermineRiskLevel(MatchStatus, IsOverdue, QtyVariancePct, PriceVariancePct);
         Assessment.Insert(true);
+
+        ScorecardMgt.RecalculateScorecard(Assessment."Vendor No.");
 
         // The order header itself is deleted once fully received and fully
         // invoiced (no lines remain) — the audit record above is still written

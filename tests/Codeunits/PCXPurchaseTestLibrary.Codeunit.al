@@ -67,4 +67,20 @@ codeunit 51121 "PCX Purchase Test Library"
         CreateBasePurchaseOrder(PurchaseHeader, PurchaseLine, OrderedQty);
         LibraryPurchase.ReleasePurchaseDocument(PurchaseHeader);
     end;
+
+    procedure CreatePurchaseOrderWithReceiptForVendor(VendorNo: Code[20]; OrderedQty: Decimal; ReceivedQty: Decimal; var PurchaseHeader: Record "Purchase Header")
+    var
+        Item: Record Item;
+        PurchaseLine: Record "Purchase Line";
+        LibraryPurchase: Codeunit "Library - Purchase";
+        LibraryInventory: Codeunit "Library - Inventory";
+    begin
+        LibraryInventory.CreateItem(Item);
+        LibraryPurchase.CreatePurchHeader(PurchaseHeader, PurchaseHeader."Document Type"::Order, VendorNo);
+        LibraryPurchase.CreatePurchaseLine(PurchaseLine, PurchaseHeader, PurchaseLine.Type::Item, Item."No.", OrderedQty);
+
+        if ReceivedQty > 0 then
+            PostReceiptOnly(PurchaseHeader, PurchaseLine, ReceivedQty);
+    end;
+
 }

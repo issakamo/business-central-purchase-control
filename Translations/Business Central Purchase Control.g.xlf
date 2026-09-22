@@ -63,6 +63,96 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table PCX Purchase Risk Assessment - Field Vendor No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 310206645 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Scorecard</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 1452828319 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assessment Count</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Assessment Count - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 429282430 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Last Calculated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Last Calculated - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 1353191048 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>On-Time %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field On-Time % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 380703177 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overall Score</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Overall Score - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 2194432991 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price Accuracy %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Price Accuracy % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 1266529893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Accuracy %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Quantity Accuracy % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 2689469945 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rating</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Rating - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 310206645 - Field 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Scorecards</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 1452828319 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of assessments included in the vendor scorecard.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Assessment Count - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 429282430 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date and time when the vendor scorecard was last calculated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Last Calculated - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 1353191048 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage of purchase order lines delivered on time.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control On-Time % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 380703177 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the overall vendor score calculated from the scorecard results.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Overall Score - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 2194432991 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage of purchase order prices delivered accurately.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Price Accuracy % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 1266529893 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage of purchase order quantities delivered accurately.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Quantity Accuracy % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 2689469945 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor rating based on the scorecard results.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Rating - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor associated with this scorecard.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="TableExtension 1682071394 - Field 1186612359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>3-Way Match Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -142,6 +232,31 @@
           <source>Released</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Released - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1808180052 - EnumValue 1680140304 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Excellent</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Vendor Rating - EnumValue Excellent - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1808180052 - EnumValue 1770341360 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fair</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Vendor Rating - EnumValue Fair - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1808180052 - EnumValue 4041807949 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Good</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Vendor Rating - EnumValue Good - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1808180052 - EnumValue 1206275391 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Insufficient Data</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Vendor Rating - EnumValue Insufficient Data - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1808180052 - EnumValue 2037984094 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Poor</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Vendor Rating - EnumValue Poor - Property Caption</note>
         </trans-unit>
       </group>
     </body>
