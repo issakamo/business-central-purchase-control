@@ -108,6 +108,216 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table PCX Vendor Scorecard - Field Vendor No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2336650217 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk Assessment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 222620933 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies additional notes for this purchase risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Notes - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 458601998 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date when the risk assessment was performed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Assessment Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 458601998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assessment Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Assessment Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the purchase document.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 3570832196 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the event or condition that triggered this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Trigger - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 3570832196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trigger</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Trigger - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the vendor number associated with this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 472338107 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assessment Result (as calculated)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Result - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 4013316041 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the 3-way match for this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Match Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 4013316041 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Match Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Match Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 4263389294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the purchase order is overdue.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Overdue - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 4263389294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overdue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Overdue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 1366573807 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage variance in the price ordered versus invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Price Variance % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 1366573807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price Variance %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Price Variance % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 2533037109 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the percentage variance in the quantity ordered versus received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Quantity Variance % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 2533037109 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Variance %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Quantity Variance % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 1069846527 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the level of risk associated with this assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Risk Level - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2336650217 - Control 1069846527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Risk Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk Card - Control Risk Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk Assessments</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 458601998 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The date when the risk assessment was performed.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Assessment Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 458601998 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Assessment Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Assessment Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The purchase document number associated with this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The unique identifier for the risk assessment entry.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Entry No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 4013316041 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The status of the 3-way match for this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Match Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 4013316041 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Match Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Match Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 4263389294 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Indicates whether the purchase order is overdue.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Overdue - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 4263389294 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Overdue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Overdue - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 1366573807 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The percentage variance in the price ordered versus invoiced.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Price Variance % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 1366573807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price Variance %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Price Variance % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 2533037109 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The percentage variance in the quantity ordered versus received.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Quantity Variance % - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 2533037109 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity Variance %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Quantity Variance % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 1069846527 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The level of risk associated with this assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Risk Level - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 1069846527 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Risk Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Risk Level - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 3570832196 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The event or condition that triggered this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Trigger - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 3570832196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trigger</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Trigger - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 1527594213 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The vendor number associated with this risk assessment.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3576759739 - Control 1527594213 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Purchase Risk List - Control Vendor No. - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1205929355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Vendor Scorecards</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -152,6 +362,36 @@
           <source>Specifies the vendor associated with this scorecard.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Vendor No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Action 3405946833 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>View the risk assessment history for this purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Action PCXViewRiskHistory - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Action 3405946833 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Risk Assessment History</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Action PCXViewRiskHistory - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Control 1186612359 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the current 3-way match status for this purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Current Match Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Control 1186612359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>3-Way Match Status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Current Match Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Control 503506081 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies the current risk level for this purchase order.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Current Risk Level - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Control 503506081 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Risk Level</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Current Risk Level - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1682071394 - Field 1186612359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>3-Way Match Status</source>

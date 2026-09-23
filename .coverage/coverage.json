@@ -18,6 +18,7 @@
     "51120|DetermineRiskLevel_OverdueOnly_NudgesLowToMediumButNeverHigher": 0,
     "51120|ReleasePurchaseOrder_CreatesReleasedTriggerAssessment": 0,
     "51122|RecalculateScorecard_BelowMinimum_ReturnsInsufficientData": 0,
-    "51122|RecalculateScorecard_AllOnTimeAndAccurate_ReturnsExcellent": 0
+    "51122|RecalculateScorecard_AllOnTimeAndAccurate_ReturnsExcellent": 0,
+    "51120|AssessPurchaseOrder_RepeatedIdenticalTrigger_DoesNotDuplicateAssessment": 0
   }
 }

@@ -13,9 +13,14 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         QtyVariancePct: Decimal;
         PriceVariancePct: Decimal;
         IsOverdue: Boolean;
+        NewRiskLevel: Enum "PCX Risk Level";
     begin
         MatchStatus := EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
         IsOverdue := IsOrderOverdue(PurchaseHeader);
+        NewRiskLevel := DetermineRiskLevel(MatchStatus, IsOverdue, QtyVariancePct, PriceVariancePct);
+
+        if IsRedundantAssessment(PurchaseHeader."No.", MatchStatus, NewRiskLevel) then
+            exit;
 
         Assessment.Init();
         Assessment."Document No." := PurchaseHeader."No.";
@@ -25,7 +30,7 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         Assessment."Overdue" := IsOverdue;
         Assessment."Quantity Variance %" := QtyVariancePct;
         Assessment."Price Variance %" := PriceVariancePct;
-        Assessment."Risk Level" := DetermineRiskLevel(MatchStatus, IsOverdue, QtyVariancePct, PriceVariancePct);
+        Assessment."Risk Level" := NewRiskLevel;
         Assessment.Insert(true);
 
         ScorecardMgt.RecalculateScorecard(Assessment."Vendor No.");
@@ -39,6 +44,19 @@ codeunit 51100 "PCX Purchase Risk Mgt"
             PurchaseHeader."PCX Current Match Status" := Assessment."Match Status";
             PurchaseHeader.Modify();
         end;
+    end;
+
+    local procedure IsRedundantAssessment(DocumentNo: Code[20]; MatchStatus: Enum "PCX Match Status"; RiskLevel: Enum "PCX Risk Level"): Boolean
+    var
+        LastAssessment: Record "PCX Purchase Risk Assessment";
+    begin
+        LastAssessment.SetRange("Document No.", DocumentNo);
+        LastAssessment.SetCurrentKey("Entry No.");
+        LastAssessment.Ascending(false);
+        if not LastAssessment.FindFirst() then
+            exit(false);
+
+        exit((LastAssessment."Match Status" = MatchStatus) and (LastAssessment."Risk Level" = RiskLevel));
     end;
 
     procedure EvaluateThreeWayMatch(DocumentNo: Code[20]; var QtyVariancePct: Decimal; var PriceVariancePct: Decimal): Enum "PCX Match Status"

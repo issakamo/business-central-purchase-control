@@ -251,6 +251,27 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.RecordIsNotEmpty(Assessment);
     end;
 
+    [Test]
+    procedure AssessPurchaseOrder_RepeatedIdenticalTrigger_DoesNotDuplicateAssessment()
+    var
+        Assessment: Record "PCX Purchase Risk Assessment";
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+    begin
+        // [GIVEN] A PO assessed once via Release
+        TestLibrary.CreateAndReleasePurchaseOrder(100, PurchaseHeader);
+        RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::Released);
+
+        // [WHEN] The identical assessment is triggered again (simulating BC's
+        // internal re-release during posting) with no change in state
+        RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::Released);
+
+        // [THEN] Only one assessment record exists for this document
+        Assessment.SetRange("Document No.", PurchaseHeader."No.");
+        Assert.AreEqual(1, Assessment.Count(), 'Redundant identical assessment should not create a duplicate row');
+    end;
+
     var
         Assert: Codeunit "Library Assert";
 }
