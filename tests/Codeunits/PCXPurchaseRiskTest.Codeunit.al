@@ -272,6 +272,35 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.AreEqual(1, Assessment.Count(), 'Redundant identical assessment should not create a duplicate row');
     end;
 
+    [Test]
+    procedure AssessPurchaseOrder_OverdueChangeOnly_StillRecordsNewAssessment()
+    var
+        Assessment: Record "PCX Purchase Risk Assessment";
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+    begin
+        // [GIVEN] A PO assessed once, not overdue (matches nothing yet)
+        TestLibrary.CreatePurchaseOrderWithReceipt(100, 0, PurchaseHeader);
+        RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::Manual);
+
+        // [WHEN] Backdate the expected receipt date so the same PO is now
+        // overdue, with Match Status/Risk Level otherwise unchanged
+        PurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
+        PurchaseHeader."Expected Receipt Date" := CalcDate('<-30D>', Today);
+        PurchaseHeader.Modify();
+        RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::Manual);
+
+        // [THEN] A second, distinct assessment was recorded despite unchanged
+        // Match Status/Risk Level, because Overdue changed
+        Assessment.SetRange("Document No.", PurchaseHeader."No.");
+        Assert.AreEqual(2, Assessment.Count(), 'Overdue-only change should not be treated as redundant');
+
+        // [AND] The header cache reflects the new overdue state
+        PurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
+        Assert.IsTrue(PurchaseHeader."PCX Currently Overdue", 'Header cache should reflect the updated overdue flag');
+    end;
+
     var
         Assert: Codeunit "Library Assert";
 }

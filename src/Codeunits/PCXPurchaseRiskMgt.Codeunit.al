@@ -19,7 +19,7 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         IsOverdue := IsOrderOverdue(PurchaseHeader);
         NewRiskLevel := DetermineRiskLevel(MatchStatus, IsOverdue, QtyVariancePct, PriceVariancePct);
 
-        if IsRedundantAssessment(PurchaseHeader."No.", MatchStatus, NewRiskLevel) then
+        if IsRedundantAssessment(PurchaseHeader."No.", MatchStatus, NewRiskLevel, IsOverdue) then
             exit;
 
         Assessment.Init();
@@ -42,11 +42,12 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         if PurchaseHeader.Find() then begin
             PurchaseHeader."PCX Current Risk Level" := Assessment."Risk Level";
             PurchaseHeader."PCX Current Match Status" := Assessment."Match Status";
+            PurchaseHeader."PCX Currently Overdue" := Assessment.Overdue;
             PurchaseHeader.Modify();
         end;
     end;
 
-    local procedure IsRedundantAssessment(DocumentNo: Code[20]; MatchStatus: Enum "PCX Match Status"; RiskLevel: Enum "PCX Risk Level"): Boolean
+    local procedure IsRedundantAssessment(DocumentNo: Code[20]; MatchStatus: Enum "PCX Match Status"; RiskLevel: Enum "PCX Risk Level"; Overdue: Boolean): Boolean
     var
         LastAssessment: Record "PCX Purchase Risk Assessment";
     begin
@@ -56,7 +57,7 @@ codeunit 51100 "PCX Purchase Risk Mgt"
         if not LastAssessment.FindFirst() then
             exit(false);
 
-        exit((LastAssessment."Match Status" = MatchStatus) and (LastAssessment."Risk Level" = RiskLevel));
+        exit((LastAssessment."Match Status" = MatchStatus) and (LastAssessment."Risk Level" = RiskLevel) and (LastAssessment.Overdue = Overdue));
     end;
 
     procedure EvaluateThreeWayMatch(DocumentNo: Code[20]; var QtyVariancePct: Decimal; var PriceVariancePct: Decimal): Enum "PCX Match Status"

@@ -18,5 +18,11 @@ tableextension 51100 "PCX Purchase Header Ext" extends "Purchase Header"
             DataClassification = CustomerContent;
             Editable = false;
         }
+        field(51102; "PCX Currently Overdue"; Boolean)
+        {
+            Caption = 'Currently Overdue';
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
 }
