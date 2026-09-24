@@ -301,6 +301,30 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.IsTrue(PurchaseHeader."PCX Currently Overdue", 'Header cache should reflect the updated overdue flag');
     end;
 
+
+    [Test]
+    procedure EvaluateThreeWayMatch_QtyMismatchNotYetInvoiced_ReportsQuantityMismatchNotMasked()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        QtyVariancePct, PriceVariancePct : Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        // [GIVEN] Ordered 100, received 20 — a real 80% quantity variance —
+        // with nothing invoiced yet
+        TestLibrary.CreatePurchaseOrderWithReceipt(100, 20, PurchaseHeader);
+
+        // [WHEN]
+        Result := RiskMgt.EvaluateThreeWayMatch(PurchaseHeader."No.", QtyVariancePct, PriceVariancePct);
+
+        // [THEN] The real mismatch is reported, not hidden behind "Not Yet
+        // Invoiced" just because invoicing hasn't happened yet
+        Assert.AreEqual(Result::"Quantity Mismatch", Result, 'A known quantity mismatch should not be masked by Not Yet Invoiced');
+    end;
+
+
+
     var
         Assert: Codeunit "Library Assert";
 }

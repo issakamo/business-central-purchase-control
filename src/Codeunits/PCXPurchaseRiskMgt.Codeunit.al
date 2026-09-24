@@ -74,18 +74,22 @@ codeunit 51100 "PCX Purchase Risk Mgt"
 
         InvoiceStatus := EvaluateInvoiceMatch(DocumentNo, PriceVariancePct);
 
-        if InvoiceStatus = InvoiceStatus::"Not Yet Invoiced" then
-            exit(InvoiceStatus);
-
-        case true of
-            (ReceiptStatus = ReceiptStatus::Matched) and (InvoiceStatus = InvoiceStatus::Matched):
-                exit(Enum::"PCX Match Status"::Matched);
-            (ReceiptStatus = ReceiptStatus::"Quantity Mismatch") and (InvoiceStatus = InvoiceStatus::Matched):
-                exit(Enum::"PCX Match Status"::"Quantity Mismatch");
-            (ReceiptStatus = ReceiptStatus::Matched) and (InvoiceStatus = InvoiceStatus::"Price Mismatch"):
-                exit(Enum::"PCX Match Status"::"Price Mismatch");
-            else
+        // A known quantity problem on the receipt is never masked by a
+        // pending or clean invoice status — report it immediately, escalating
+        // only if a price problem exists on top of it.
+        if ReceiptStatus = ReceiptStatus::"Quantity Mismatch" then begin
+            if InvoiceStatus = InvoiceStatus::"Price Mismatch" then
                 exit(Enum::"PCX Match Status"::"Quantity and Price Mismatch");
+            exit(Enum::"PCX Match Status"::"Quantity Mismatch");
+        end;
+
+        case InvoiceStatus of
+            InvoiceStatus::"Not Yet Invoiced":
+                exit(InvoiceStatus);
+            InvoiceStatus::"Price Mismatch":
+                exit(InvoiceStatus);
+            else
+                exit(Enum::"PCX Match Status"::Matched);
         end;
     end;
 

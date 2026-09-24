@@ -19,4 +19,8 @@ enum 51102 "PCX Risk Trigger"
     {
         Caption = 'Invoice Posted';
     }
+    value(4; "Manually Closed")
+    {
+        Caption = 'Manually Closed';
+    }
 }

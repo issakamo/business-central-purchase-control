@@ -20,6 +20,8 @@
     "51122|RecalculateScorecard_BelowMinimum_ReturnsInsufficientData": 0,
     "51122|RecalculateScorecard_AllOnTimeAndAccurate_ReturnsExcellent": 0,
     "51120|AssessPurchaseOrder_RepeatedIdenticalTrigger_DoesNotDuplicateAssessment": 0,
-    "51120|AssessPurchaseOrder_OverdueChangeOnly_StillRecordsNewAssessment": 0
+    "51120|AssessPurchaseOrder_OverdueChangeOnly_StillRecordsNewAssessment": 0,
+    "51120|AdministrativeClosure_ReducingQuantityToReceived_ClearsRisk": 1,
+    "51120|EvaluateThreeWayMatch_QtyMismatchNotYetInvoiced_ReportsQuantityMismatchNotMasked": 0
   }
 }

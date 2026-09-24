@@ -553,6 +553,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Manual - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 2357400508 - EnumValue 3872684631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Manually Closed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Risk Trigger - EnumValue Manually Closed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Enum 2357400508 - EnumValue 3445422215 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Receipt Posted</source>
           <note from="Developer" annotates="general" priority="2"></note>
