@@ -324,6 +324,35 @@ codeunit 51120 "PCX Purchase Risk Test"
     end;
 
 
+    [Test]
+    procedure ApplyMinimumRiskFilter_MediumThreshold_ExcludesLowOnly()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        LowHeader: Record "Purchase Header";
+        MediumHeader: Record "Purchase Header";
+        RiskReportMgt: Codeunit "PCX Risk Report Mgt";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+    begin
+        // [GIVEN] One Low-risk PO (fully matched) and one Medium-or-worse PO
+        TestLibrary.CreatePurchaseOrderWithReceipt(100, 100, LowHeader);
+        RiskMgt.AssessPurchaseOrder(LowHeader, Enum::"PCX Risk Trigger"::"Receipt Posted");
+
+        TestLibrary.CreatePurchaseOrderWithReceipt(100, 80, MediumHeader);
+        RiskMgt.AssessPurchaseOrder(MediumHeader, Enum::"PCX Risk Trigger"::"Receipt Posted");
+
+        // [WHEN]
+        PurchaseHeader.SetRange("Document Type", PurchaseHeader."Document Type"::Order);
+        RiskReportMgt.ApplyMinimumRiskFilter(PurchaseHeader, Enum::"PCX Risk Level"::Medium);
+
+        // [THEN] The Low-risk PO is excluded, the mismatched one is included
+        PurchaseHeader.SetRange("No.", LowHeader."No.");
+        Assert.IsTrue(PurchaseHeader.IsEmpty(), 'Low-risk PO should be excluded at Medium threshold');
+
+        PurchaseHeader.SetRange("No.", MediumHeader."No.");
+        Assert.IsFalse(PurchaseHeader.IsEmpty(), 'Medium-or-worse PO should be included');
+    end;
+
 
     var
         Assert: Codeunit "Library Assert";

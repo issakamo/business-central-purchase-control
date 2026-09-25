@@ -413,6 +413,36 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Vendor No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Report 2580915113 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk Summary</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PCX Purchase Risk Summary - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2580915113 - NamedType 2539125420" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk Summary - Orders at %1 Risk or Higher</source>
+          <note from="Developer" annotates="general" priority="2">%1 = minimum risk level</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PCX Purchase Risk Summary - NamedType HeaderTextLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2580915113 - Control 602047037 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to include vendors with insufficient data in the report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PCX Purchase Risk Summary - Control IncludeInsufficientDataField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2580915113 - Control 602047037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Include Vendors with Insufficient Data</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PCX Purchase Risk Summary - Control IncludeInsufficientDataField - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 2580915113 - Control 1546883515 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the minimum risk level for purchase orders to include in the report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PCX Purchase Risk Summary - Control MinimumRiskLevelField - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 2580915113 - Control 1546883515 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Minimum Risk Level to Include</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PCX Purchase Risk Summary - Control MinimumRiskLevelField - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 439791033 - Action 3405946833 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>View the risk assessment history for this purchase order.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -592,6 +622,16 @@
           <source>Poor</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum PCX Vendor Rating - EnumValue Poor - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 261227800 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk Manager</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PCX Purch Risk Mgr - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PermissionSet 102110327 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase Risk User</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PermissionSet PCX Purch Risk User - Property Caption</note>
         </trans-unit>
       </group>
     </body>
