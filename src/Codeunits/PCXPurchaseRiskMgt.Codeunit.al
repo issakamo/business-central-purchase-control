@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.History;

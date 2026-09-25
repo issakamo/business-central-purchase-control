@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 enum 51102 "PCX Risk Trigger"
 {

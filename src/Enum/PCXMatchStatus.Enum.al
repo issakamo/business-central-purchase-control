@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 enum 51101 "PCX Match Status"
 {

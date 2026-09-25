@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 page 51100 "PCX Purchase Risk List"
 {

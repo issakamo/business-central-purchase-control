@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 using Microsoft.Finance.GeneralLedger.Posting;
 using Microsoft.Purchases.Document;

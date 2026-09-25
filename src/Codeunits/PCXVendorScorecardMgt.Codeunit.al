@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 codeunit 51102 "PCX Vendor Scorecard Mgt"
 {

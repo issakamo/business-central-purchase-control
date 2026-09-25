@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing;
+namespace PurchaseControl.Purchasing;
 
 permissionset 51101 "PCX Purch Risk Mgr"
 {

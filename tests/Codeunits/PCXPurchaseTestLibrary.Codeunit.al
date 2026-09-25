@@ -1,4 +1,4 @@
-namespace WarehouseControl.Purchasing.Test;
+namespace PurchaseControl.Purchasing.Test;
 
 using Microsoft.Inventory.Item;
 using Microsoft.Purchases.Document;

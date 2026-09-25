@@ -1,8 +1,8 @@
-namespace WarehouseControl.Purchasing.Test;
+namespace PurchaseControl.Purchasing.Test;
 
 using Microsoft.Purchases.Document;
+using PurchaseControl.Purchasing;
 using System.TestLibraries.Utilities;
-using WarehouseControl.Purchasing;
 
 codeunit 51120 "PCX Purchase Risk Test"
 {

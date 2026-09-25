@@ -1,8 +1,8 @@
-namespace WarehouseControl.Purchasing.Test;
+namespace PurchaseControl.Purchasing.Test;
 
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.Vendor;
-using WarehouseControl.Purchasing;
+using PurchaseControl.Purchasing;
 
 codeunit 51122 "PCX Vendor Scorecard Test"
 {
