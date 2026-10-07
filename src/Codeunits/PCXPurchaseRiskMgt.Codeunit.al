@@ -264,9 +264,26 @@ codeunit 51100 "PCX Purchase Risk Mgt"
     end;
 
     local procedure IsOrderOverdue(PurchaseHeader: Record "Purchase Header"): Boolean
+    var
+        PurchaseLine: Record "Purchase Line";
     begin
-        exit((PurchaseHeader."Expected Receipt Date" <> 0D)
-            and (PurchaseHeader."Expected Receipt Date" < Today)
-            and (SumReceivedQuantity(PurchaseHeader."No.") < SumOrderedQuantity(PurchaseHeader."No.")));
+        // An order is overdue when any item line is past its expected
+        // receipt date (relative to the work date) and still has quantity
+        // outstanding. Evaluated per line, since the line-level Expected
+        // Receipt Date is the one users actually see and edit.
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
+        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        PurchaseLine.SetRange(Type, PurchaseLine.Type::Item);
+        if PurchaseLine.FindSet() then
+            repeat
+                if (PurchaseLine."Expected Receipt Date" <> 0D) and
+                   (PurchaseLine."Expected Receipt Date" < WorkDate()) and
+                   (PurchaseLine."Outstanding Quantity" > 0)
+                then
+                    exit(true);
+            until PurchaseLine.Next() = 0;
+
+        exit(false);
     end;
+
 }

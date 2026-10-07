@@ -277,28 +277,32 @@ codeunit 51120 "PCX Purchase Risk Test"
     var
         Assessment: Record "PCX Purchase Risk Assessment";
         PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
         TestLibrary: Codeunit "PCX Purchase Test Library";
         RiskMgt: Codeunit "PCX Purchase Risk Mgt";
     begin
-        // [GIVEN] A PO assessed once, not overdue (matches nothing yet)
+        // [GIVEN] A PO assessed once while not overdue
         TestLibrary.CreatePurchaseOrderWithReceipt(100, 0, PurchaseHeader);
         RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::Manual);
 
-        // [WHEN] Backdate the expected receipt date so the same PO is now
-        // overdue, with Match Status/Risk Level otherwise unchanged
+        // [WHEN] The line's expected receipt date moves into the past
+        // relative to the work date, with nothing else changed
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
+        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        PurchaseLine.FindFirst();
+        PurchaseLine."Expected Receipt Date" := CalcDate('<-30D>', WorkDate());
+        PurchaseLine.Modify();
+
         PurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
-        PurchaseHeader."Expected Receipt Date" := CalcDate('<-30D>', Today);
-        PurchaseHeader.Modify();
         RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::Manual);
 
-        // [THEN] A second, distinct assessment was recorded despite unchanged
-        // Match Status/Risk Level, because Overdue changed
+        // [THEN] A second assessment is recorded because Overdue changed
         Assessment.SetRange("Document No.", PurchaseHeader."No.");
         Assert.AreEqual(2, Assessment.Count(), 'Overdue-only change should not be treated as redundant');
 
-        // [AND] The header cache reflects the new overdue state
+        // [AND] The header cache reflects the overdue state
         PurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
-        Assert.IsTrue(PurchaseHeader."PCX Currently Overdue", 'Header cache should reflect the updated overdue flag');
+        Assert.IsTrue(PurchaseHeader."PCX Currently Overdue", 'Header cache should reflect the overdue flag');
     end;
 
 

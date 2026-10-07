@@ -148,6 +148,11 @@ one input among several weighted percentages:
 - `Overdue` is a **modifier only**: it nudges a clean (`Low`) result up
   to `Medium`, but never independently produces `High`/`Critical`, and
   never overrides a worse match-status-driven tier.
+  An order is overdue when any item line's Expected Receipt Date is
+  earlier than the work date and that line still has quantity
+  outstanding. The line-level date is used because it is the one users
+  see and edit, and the work date is used rather than the system clock,
+  following Business Central convention.
 
 This is a materially different shape from the companion project's risk
 calculation, worth being able to explain: Project 1 needed one
