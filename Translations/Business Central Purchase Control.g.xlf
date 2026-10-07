@@ -473,6 +473,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Current Risk Level - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Control 4019001423 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Specifies whether this purchase order is currently overdue.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Currently Overdue - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 439791033 - Control 4019001423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Currently Overdue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PCX Purchase Order Ext - Control PCX Currently Overdue - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 2805199190 - Control 2004505305 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
           <source>Purchase Risk Scorecard</source>
           <note from="Developer" annotates="general" priority="2"></note>

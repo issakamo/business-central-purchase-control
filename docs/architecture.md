@@ -57,22 +57,33 @@ matched order as a 100% quantity mismatch.
 
 ### Invoice matching
 
-`EvaluateInvoiceMatch` compares an ordered-amount baseline against
-invoiced amount (`Purch. Inv. Line`, `CalcSums(Amount)`). The ordered
-baseline is read from **`Purch. Rcpt. Line`, not `Purchase Line`** —
-deliberately, and for a different reason than the quantity side: the
-live order line can disappear (as above) *and*, even while it exists,
-doesn't reliably carry line-level discount information the way a
-posted receipt line does. The baseline is computed manually
-(`Quantity × Direct Unit Cost`, net of `Line Discount %`) rather than
-via `CalcSums`, since discount-adjusted amounts aren't expressible as
-a single summable field. `Line Discount Amount` does not exist on
-`Purch. Rcpt. Line` in this project's Business Central version, so the
-discount is recomputed from `Line Discount %` rather than read as a
-stored value — mathematically equivalent, with a theoretical
-fraction-of-a-cent rounding difference against BC's own internal
-rounding on unusual quantity/percentage combinations, which is an
-accepted, documented simplification.
+`EvaluateInvoiceMatch` compares each posted invoice line against the
+receipt line it was invoiced from (paired via `Order Line No.`), using
+the receipt line's net unit cost (`Direct Unit Cost` less
+`Line Discount %`) multiplied by the quantity actually invoiced. The
+summed expected amount is rounded to General Ledger Setup's
+`Amount Rounding Precision` before being compared with the summed
+invoiced `Amount`.
+
+Two earlier designs were deliberately replaced:
+
+- Reading the ordered baseline from the live `Purchase Line` failed
+  because Business Central deletes the order line once it is fully
+  received and invoiced. Posted receipt lines persist.
+- Comparing **document totals** (total received amount vs. total
+  invoiced amount) misreported partial invoicing: 100 units received
+  and 50 invoiced at the correct price appeared as a 50% price
+  mismatch. Comparing per line, for the invoiced quantity only,
+  separates genuine price variance from ordinary partial invoicing.
+  Covered by `EvaluateInvoiceMatch_PartialInvoiceSamePrice_ReturnsMatched`.
+
+`Line Discount Amount` does not exist on `Purch. Rcpt. Line` in this
+version, so the discount is applied from `Line Discount %`. An invoice
+line with no matching receipt line contributes nothing to the expected
+amount and therefore surfaces as a variance rather than passing
+silently. If an order line was received across multiple receipts at
+different prices, the first receipt line's price is used, an accepted
+simplification.
 
 ### Three-way merge, and a real bug found by manual testing
 

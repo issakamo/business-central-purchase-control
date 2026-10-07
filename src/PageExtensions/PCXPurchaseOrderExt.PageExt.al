@@ -23,6 +23,13 @@ pageextension 51100 "PCX Purchase Order Ext" extends "Purchase Order"
                 ToolTip = 'Specifies the current 3-way match status for this purchase order.';
                 Editable = false;
             }
+            field("PCX Currently Overdue"; Rec."PCX Currently Overdue")
+            {
+                ApplicationArea = All;
+                Caption = 'Currently Overdue';
+                ToolTip = 'Specifies whether this purchase order is currently overdue.';
+                Editable = false;
+            }
         }
     }
 

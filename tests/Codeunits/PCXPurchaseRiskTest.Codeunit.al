@@ -354,6 +354,26 @@ codeunit 51120 "PCX Purchase Risk Test"
     end;
 
 
+    [Test]
+    procedure EvaluateInvoiceMatch_PartialInvoiceSamePrice_ReturnsMatched()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+        PriceVariancePct: Decimal;
+        Result: Enum "PCX Match Status";
+    begin
+        // [GIVEN] 100 received at 10, but only 50 invoiced, at the same price
+        TestLibrary.CreatePurchaseOrderWithReceiptAndInvoice(100, 100, 50, 10, 10, PurchaseHeader);
+
+        // [WHEN]
+        Result := RiskMgt.EvaluateInvoiceMatch(PurchaseHeader."No.", PriceVariancePct);
+
+        // [THEN] A partial invoice at the correct price is not a price mismatch
+        Assert.AreEqual(Result::Matched, Result, 'Partial invoice at the correct price should be Matched');
+        Assert.AreEqual(0, PriceVariancePct, 'Expected 0% price variance');
+    end;
+
     var
         Assert: Codeunit "Library Assert";
 }
