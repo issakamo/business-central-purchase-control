@@ -378,6 +378,49 @@ codeunit 51120 "PCX Purchase Risk Test"
         Assert.AreEqual(0, PriceVariancePct, 'Expected 0% price variance');
     end;
 
+    [Test]
+    procedure AdministrativeClosure_ReducingQuantityToReceived_ClearsRisk()
+    var
+        PurchaseHeader: Record "Purchase Header";
+        PurchaseLine: Record "Purchase Line";
+        Assessment: Record "PCX Purchase Risk Assessment";
+        TestLibrary: Codeunit "PCX Purchase Test Library";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+    begin
+        // [GIVEN] Ordered 100, received 80. The receipt-posting subscriber
+        // is verified separately and manually in the Web Client. Calling
+        // AssessPurchaseOrder directly sets up this test's starting state
+        // without depending on mid-posting data visibility, which Business
+        // Central's test isolation doesn't reliably support (see
+        // docs/architecture.md).
+        TestLibrary.CreatePurchaseOrderWithReceipt(100, 80, PurchaseHeader);
+        RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::"Receipt Posted");
+
+        PurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
+        Assert.AreNotEqual(PurchaseHeader."PCX Current Risk Level"::Low, PurchaseHeader."PCX Current Risk Level", 'Precondition: should start as a real mismatch');
+
+        // [WHEN] The order is reopened, as a user must do before editing
+        // lines, and the shortfall is closed administratively by reducing
+        // Quantity to match what was actually received
+        ReleasePurchDoc.Reopen(PurchaseHeader);
+
+        PurchaseLine.SetRange("Document Type", PurchaseHeader."Document Type");
+        PurchaseLine.SetRange("Document No.", PurchaseHeader."No.");
+        PurchaseLine.FindFirst();
+        PurchaseLine.Validate(Quantity, 80);
+        PurchaseLine.Modify(true);
+
+        // [THEN] The header's cached risk clears, and a Manually Closed
+        // assessment records the resolution
+        PurchaseHeader.Get(PurchaseHeader."Document Type", PurchaseHeader."No.");
+        Assert.AreEqual(PurchaseHeader."PCX Current Risk Level"::Low, PurchaseHeader."PCX Current Risk Level", 'Risk should clear once the order quantity matches what was received');
+
+        Assessment.SetRange("Document No.", PurchaseHeader."No.");
+        Assessment.SetRange("Trigger", Assessment."Trigger"::"Manually Closed");
+        Assert.RecordIsNotEmpty(Assessment);
+    end;
+
     var
         Assert: Codeunit "Library Assert";
+        ReleasePurchDoc: Codeunit "Release Purchase Document";
 }

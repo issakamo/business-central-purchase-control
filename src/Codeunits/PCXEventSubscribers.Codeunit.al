@@ -38,4 +38,35 @@ codeunit 51101 "PCX Event Subscribers"
 
         RiskMgt.AssessPurchaseOrder(PurchaseHeader, RiskTrigger);
     end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Purchase Line", 'OnAfterValidateEvent', 'Quantity', false, false)]
+    local procedure OnAfterValidateQuantity_AssessAdministrativeClosure(var Rec: Record "Purchase Line"; var xRec: Record "Purchase Line"; CurrFieldNo: Integer)
+    var
+        PurchaseHeader: Record "Purchase Header";
+        RiskMgt: Codeunit "PCX Purchase Risk Mgt";
+    begin
+        if Rec."Document Type" <> Rec."Document Type"::Order then
+            exit;
+        if Rec.Type <> Rec.Type::Item then
+            exit;
+
+        // A shortfall is closed administratively by reducing Quantity to
+        // exactly what was received. This is checked from the line's own
+        // values rather than xRec, which a code-driven Validate may not
+        // populate the way a page does.
+        if (Rec."Quantity Received" = 0) or (Rec.Quantity <> Rec."Quantity Received") then
+            exit;
+
+        // OnAfterValidateEvent runs before the page or caller saves the
+        // line, and the risk engine reads lines from the database. Save the
+        // new quantity first so the re-assessment sees it. The caller's own
+        // save still runs afterwards, with the table's normal triggers.
+        Rec.Modify(false);
+
+        if not PurchaseHeader.Get(Rec."Document Type", Rec."Document No.") then
+            exit;
+
+        RiskMgt.AssessPurchaseOrder(PurchaseHeader, Enum::"PCX Risk Trigger"::"Manually Closed");
+    end;
+
 }
