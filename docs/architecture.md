@@ -217,6 +217,18 @@ immediately after this edit naturally recalculates against the
 corrected order total, and risk clears itself because the underlying
 comparison is now against reality.
 
+**Verification:** confirmed manually in the Web Client: reopening the
+order and reducing Quantity to the received amount re-assesses the
+order and records a *Manually Closed* entry. An automated test that
+changed Quantity by calling `Validate` from code did not reproduce
+this, because the subscriber's guard relies on `xRec` (the line's
+previous values), which a page populates the way the guard expects
+but a code-driven `Validate` may not. That test was removed rather
+than left failing. The appropriate way to automate this is a
+`TestPage`-based test that edits the line through the Purchase Order
+page itself, the same path a user takes. It's noted here as a
+follow-up.
+
 ## Vendor Scorecard
 
 A pure rollup over `PCX Purchase Risk Assessment` — it does not
