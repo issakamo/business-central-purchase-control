@@ -70,7 +70,7 @@ codeunit 51122 "PCX Vendor Scorecard Test"
         // [GIVEN] A vendor with 5 assessments, each with a 500% price variance
         LibraryPurchase.CreateVendor(Vendor);
         for i := 1 to 5 do begin
-            Assessment.Init();
+            Clear(Assessment);
             Assessment."Document No." := 'TEST';
             Assessment."Vendor No." := Vendor."No.";
             Assessment."Price Variance %" := 500;
