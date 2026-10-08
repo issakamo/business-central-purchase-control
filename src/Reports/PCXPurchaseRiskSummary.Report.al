@@ -21,7 +21,6 @@ report 51100 "PCX Purchase Risk Summary"
             column(No_; "No.") { }
             column(BuyFromVendorNo; "Buy-from Vendor No.") { }
             column(BuyFromVendorName; "Buy-from Vendor Name") { }
-            column(ExpectedReceiptDate; "Expected Receipt Date") { }
             column(RiskLevel; "PCX Current Risk Level") { }
             column(MatchStatus; "PCX Current Match Status") { }
             column(CurrentlyOverdue; "PCX Currently Overdue") { }
@@ -33,18 +32,35 @@ report 51100 "PCX Purchase Risk Summary"
         }
         dataitem(VendorScorecards; "PCX Vendor Scorecard")
         {
-            column(AssessmentCount; "Assessment Count") { }
-            column(OnTimePct; "On-Time %") { }
-            column(QtyAccuracyPct; "Quantity Accuracy %") { }
-            column(PriceAccuracyPct; "Price Accuracy %") { }
-            column(OverallScore; "Overall Score") { }
-            column(Rating; Rating) { }
             column(VendorNo; "Vendor No.") { }
+            column(AssessmentCount; "Assessment Count") { }
+            column(OnTimePctTxt; OnTimePctTxt) { }
+            column(QtyAccuracyPctTxt; QtyAccuracyPctTxt) { }
+            column(PriceAccuracyPctTxt; PriceAccuracyPctTxt) { }
+            column(OverallScoreTxt; OverallScoreTxt) { }
+            column(Rating; Rating) { }
 
             trigger OnPreDataItem()
             begin
                 if not IncludeInsufficientData then
                     SetFilter(Rating, '<>%1', Rating::"Insufficient Data");
+            end;
+
+            trigger OnAfterGetRecord()
+            begin
+                // An unrated vendor has no measured scores. Printing 0 would
+                // read as a measured 0%, so these are left blank instead.
+                if Rating = Rating::"Insufficient Data" then begin
+                    OnTimePctTxt := '';
+                    QtyAccuracyPctTxt := '';
+                    PriceAccuracyPctTxt := '';
+                    OverallScoreTxt := '';
+                end else begin
+                    OnTimePctTxt := Format("On-Time %", 0, '<Precision,0:1><Standard Format,0>');
+                    QtyAccuracyPctTxt := Format("Quantity Accuracy %", 0, '<Precision,0:1><Standard Format,0>');
+                    PriceAccuracyPctTxt := Format("Price Accuracy %", 0, '<Precision,0:1><Standard Format,0>');
+                    OverallScoreTxt := Format("Overall Score", 0, '<Precision,0:1><Standard Format,0>');
+                end;
             end;
         }
     }
@@ -91,4 +107,9 @@ report 51100 "PCX Purchase Risk Summary"
         IncludeInsufficientData: Boolean;
         HeaderText: Text;
         HeaderTextLbl: Label 'Purchase Risk Summary - Orders at %1 Risk or Higher', Comment = '%1 = minimum risk level';
+        OnTimePctTxt: Text;
+        QtyAccuracyPctTxt: Text;
+        PriceAccuracyPctTxt: Text;
+        OverallScoreTxt: Text;
+
 }
