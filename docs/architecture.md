@@ -225,11 +225,16 @@ in the matching engine, the scorecard is automatically correct on the
 next recalculation, with nothing duplicated to fix separately.
 
 - **On-Time %** — proportion of assessments where `Overdue = false`.
-- **Quantity / Price Accuracy %** — `100 − average(|variance %|)`
-  across all assessments for the vendor. Absolute value is used
-  deliberately: a −10% and a +10% variance are both treated as 10%
-  inaccurate, rather than allowing over- and under-delivery/pricing to
-  net toward zero and mask a genuinely inconsistent vendor.
+- **Quantity / Price Accuracy %**: the average, across all of a
+  vendor's assessments, of each assessment's own accuracy,
+  `100 − |variance %|`, floored at 0. Absolute value is used so that
+  over- and under-delivery or pricing don't cancel out and mask an
+  inconsistent vendor. The per-assessment floor means a variance of
+  100% or more counts as 0% accurate. An earlier version averaged the
+  raw variances first, which let a few extreme outliers (e.g. an
+  invoice at several times the agreed price) drive a vendor's accuracy,
+  and overall score, below zero. Covered by
+  `RecalculateScorecard_ExtremeVariance_AccuracyFlooredAtZero`.
 - **Overall Score** — an equal, unweighted average of the three
   metrics above. Documented as a defensible default, not a claim that
   the three dimensions are inherently equally important — a

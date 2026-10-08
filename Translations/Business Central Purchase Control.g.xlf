@@ -413,6 +413,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Control Vendor No. - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1205929355 - Action 3528876006 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recalculates all vendor scorecards.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Action RecalculateAll - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1205929355 - Action 3528876006 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Recalculate All</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PCX Vendor Scorecard List - Action RecalculateAll - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2580915113 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Risk Summary</source>
           <note from="Developer" annotates="general" priority="2"></note>

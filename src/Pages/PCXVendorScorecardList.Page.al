@@ -53,6 +53,28 @@ page 51101 "PCX Vendor Scorecard List"
         }
     }
 
+    actions
+    {
+        area(Processing)
+        {
+            action(RecalculateAll)
+            {
+                ApplicationArea = All;
+                Caption = 'Recalculate All';
+                Image = Refresh;
+                Tooltip = 'Recalculates all vendor scorecards.';
+
+                trigger OnAction()
+                var
+                    ScorecardMgt: Codeunit "PCX Vendor Scorecard Mgt";
+                begin
+                    ScorecardMgt.RecalculateAllScorecards();
+                    CurrPage.Update(false);
+                end;
+            }
+        }
+    }
+
     trigger OnAfterGetRecord()
     begin
         SetScoreStyle();

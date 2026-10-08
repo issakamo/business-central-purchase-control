@@ -15,8 +15,8 @@ codeunit 51102 "PCX Vendor Scorecard Mgt"
         Scorecard: Record "PCX Vendor Scorecard";
         TotalCount: Integer;
         OnTimeCount: Integer;
-        QtyVarianceSum: Decimal;
-        PriceVarianceSum: Decimal;
+        QtyAccuracySum: Decimal;
+        PriceAccuracySum: Decimal;
         OnTimePct: Decimal;
         QtyAccuracyPct: Decimal;
         PriceAccuracyPct: Decimal;
@@ -30,8 +30,8 @@ codeunit 51102 "PCX Vendor Scorecard Mgt"
                 TotalCount += 1;
                 if not Assessment.Overdue then
                     OnTimeCount += 1;
-                QtyVarianceSum += Abs(Assessment."Quantity Variance %");
-                PriceVarianceSum += Abs(Assessment."Price Variance %");
+                QtyAccuracySum += AccuracyFromVariance(Assessment."Quantity Variance %");
+                PriceAccuracySum += AccuracyFromVariance(Assessment."Price Variance %");
             until Assessment.Next() = 0;
 
         if not Scorecard.Get(VendorNo) then begin
@@ -54,8 +54,8 @@ codeunit 51102 "PCX Vendor Scorecard Mgt"
         end;
 
         OnTimePct := OnTimeCount / TotalCount * 100;
-        QtyAccuracyPct := 100 - (QtyVarianceSum / TotalCount);
-        PriceAccuracyPct := 100 - (PriceVarianceSum / TotalCount);
+        QtyAccuracyPct := QtyAccuracySum / TotalCount;
+        PriceAccuracyPct := PriceAccuracySum / TotalCount;
         OverallScore := (OnTimePct + QtyAccuracyPct + PriceAccuracyPct) / 3;
 
         Scorecard."On-Time %" := OnTimePct;
@@ -64,6 +64,26 @@ codeunit 51102 "PCX Vendor Scorecard Mgt"
         Scorecard."Overall Score" := OverallScore;
         Scorecard.Rating := DetermineRating(OverallScore);
         Scorecard.Modify();
+    end;
+
+    procedure RecalculateAllScorecards()
+    var
+        Scorecard: Record "PCX Vendor Scorecard";
+    begin
+        if Scorecard.FindSet() then
+            repeat
+                RecalculateScorecard(Scorecard."Vendor No.");
+            until Scorecard.Next() = 0;
+    end;
+
+    local procedure AccuracyFromVariance(VariancePct: Decimal): Decimal
+    begin
+        // Each assessment contributes between 0 and 100. A variance of 100%
+        // or more counts as 0% accurate, so a single extreme outlier cannot
+        // drive a vendor's score below zero.
+        if Abs(VariancePct) >= 100 then
+            exit(0);
+        exit(100 - Abs(VariancePct));
     end;
 
     local procedure DetermineRating(OverallScore: Decimal): Enum "PCX Vendor Rating"

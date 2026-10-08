@@ -57,6 +57,35 @@ codeunit 51122 "PCX Vendor Scorecard Test"
         Assert.AreEqual(100, Scorecard."Overall Score", 'Expected a perfect 100 overall score');
     end;
 
+    [Test]
+    procedure RecalculateScorecard_ExtremeVariance_AccuracyFlooredAtZero()
+    var
+        Assessment: Record "PCX Purchase Risk Assessment";
+        Scorecard: Record "PCX Vendor Scorecard";
+        Vendor: Record Vendor;
+        ScorecardMgt: Codeunit "PCX Vendor Scorecard Mgt";
+        LibraryPurchase: Codeunit "Library - Purchase";
+        i: Integer;
+    begin
+        // [GIVEN] A vendor with 5 assessments, each with a 500% price variance
+        LibraryPurchase.CreateVendor(Vendor);
+        for i := 1 to 5 do begin
+            Assessment.Init();
+            Assessment."Document No." := 'TEST';
+            Assessment."Vendor No." := Vendor."No.";
+            Assessment."Price Variance %" := 500;
+            Assessment.Insert(true);
+        end;
+
+        // [WHEN]
+        ScorecardMgt.RecalculateScorecard(Vendor."No.");
+
+        // [THEN] Price accuracy floors at zero, and the overall score stays non-negative
+        Scorecard.Get(Vendor."No.");
+        Assert.AreEqual(0, Scorecard."Price Accuracy %", 'Price accuracy should floor at zero');
+        Assert.IsTrue(Scorecard."Overall Score" >= 0, 'Overall score should never be negative');
+    end;
+
     var
         Assert: Codeunit Assert;
 }
