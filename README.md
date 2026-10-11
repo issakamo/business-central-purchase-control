@@ -1,6 +1,6 @@
-# Business Central Purchase Control
-
 ▶ **[Watch the demo video (7 min)](https://youtu.be/cMcnb_IZdMk)**
+
+# Business Central Purchase Control
 
 Purchase order risk detection and 3-way match validation for Dynamics 365 Business Central.
 
