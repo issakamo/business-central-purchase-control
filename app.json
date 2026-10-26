@@ -10,7 +10,7 @@
   "help": "https://github.com/issakamo/business-central-purchase-control/blob/main/README.md",
   "contextSensitiveHelpUrl": "https://github.com/issakamo/business-central-purchase-control/blob/main/README.md",
   "url": "https://github.com/issakamo/business-central-purchase-control",
-  "logo": "resources/logo.jpg",
+  "logo": "resources/logo.png",
   "dependencies": [
     {
       "id": "dd0be2ea-f733-4d65-bb34-a28f4624fb14",
