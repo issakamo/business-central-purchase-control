@@ -4,7 +4,7 @@ using Microsoft.Purchases.Document;
 using Microsoft.Purchases.Vendor;
 using PurchaseControl.Purchasing;
 
-codeunit 51122 "PCX Vendor Scorecard Test"
+codeunit 51152 "PCX Vendor Scorecard Test"
 {
     Subtype = Test;
 

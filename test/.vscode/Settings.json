@@ -1,0 +1,16 @@
+{
+  "al.enableCodeAnalysis": true,
+  "al.codeAnalyzers": [
+    "${CodeCop}",
+    "${UICop}",
+    "${AppSourceCop}"
+  ],
+  "al.ruleSetPath": ".al-code-analysis/ruleset.json",
+  "al.incrementalBuild": true,
+  "al.enableCodeActions": true,
+  "al.backgroundCodeAnalysis": true,
+  "editor.formatOnSave": true,
+  "[al]": {
+    "editor.defaultFormatter": "ms-dynamics-smb.al"
+  }
+}

@@ -2,7 +2,7 @@
   "id": "95a9ca5a-698a-4273-83ea-0b3bab13238d",
   "name": "Business Central Purchase Control",
   "publisher": "Issaka Mohammed",
-  "version": "1.0.0.0",
+  "version": "1.1.0.0",
   "brief": "Purchase order risk detection and 3-way match validation for Business Central.",
   "description": "Assesses purchase order risk by validating 3-way matching (order, receipt, invoice) and flagging overdue or variant orders. Maintains a full risk assessment history per order alongside a live current-risk indicator on the Purchase Order.",
   "privacyStatement": "https://github.com/issakamo/business-central-purchase-control/blob/main/docs/privacy.md",
@@ -11,20 +11,7 @@
   "contextSensitiveHelpUrl": "https://github.com/issakamo/business-central-purchase-control/blob/main/README.md",
   "url": "https://github.com/issakamo/business-central-purchase-control",
   "logo": "resources/logo.png",
-  "dependencies": [
-    {
-      "id": "dd0be2ea-f733-4d65-bb34-a28f4624fb14",
-      "name": "Library Assert",
-      "publisher": "Microsoft",
-      "version": "28.0.0.0"
-    },
-    {
-      "id": "5d86850b-0d76-4eca-bd7b-951ad998e997",
-      "name": "Tests-TestLibraries",
-      "publisher": "Microsoft",
-      "version": "28.0.0.0"
-    }
-  ],
+  "dependencies": [],
   "screenshots": [],
   "platform": "28.0.53152.0",
   "application": "28.3.52162.53166",

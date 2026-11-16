@@ -4,7 +4,7 @@ using Microsoft.Inventory.Item;
 using Microsoft.Purchases.Document;
 using Microsoft.Purchases.Vendor;
 
-codeunit 51121 "PCX Purchase Test Library"
+codeunit 51150 "PCX Purchase Test Library"
 {
     procedure CreatePurchaseOrderWithReceipt(OrderedQty: Decimal; ReceivedQty: Decimal; var PurchaseHeader: Record "Purchase Header")
     var

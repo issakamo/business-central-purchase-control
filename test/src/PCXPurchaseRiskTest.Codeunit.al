@@ -4,7 +4,7 @@ using Microsoft.Purchases.Document;
 using PurchaseControl.Purchasing;
 using System.TestLibraries.Utilities;
 
-codeunit 51120 "PCX Purchase Risk Test"
+codeunit 51151 "PCX Purchase Risk Test"
 {
     Subtype = Test;
 
